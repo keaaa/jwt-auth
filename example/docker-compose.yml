@@ -1,0 +1,33 @@
+version: "3.5"
+
+services:
+  api:
+    image: keaaa/http-echo
+    container_name: an-api
+    networks:
+      - a-network
+      
+  jwt-auth:
+    image: keaaa/jwt-auth
+    container_name: an-jwt_auth
+    environment:
+      - API_RESOURCE_ID=${API_RESOURCE_ID}
+      - PUBLIC_KEYS_ENDPOINT=${PUBLIC_KEYS_ENDPOINT}
+    networks:
+      - a-network
+      
+  proxy:
+    image: bitnami/nginx:latest
+    container_name: an-proxy
+    volumes:
+      - type: bind
+        source: ./server.conf
+        target: /opt/bitnami/nginx/conf/server_blocks/server.conf
+    networks:
+      - a-network
+    ports:
+      - "8080:8080"
+
+networks:
+  a-network:
+    name: a-network

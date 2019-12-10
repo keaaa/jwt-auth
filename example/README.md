@@ -1,0 +1,1 @@
+to run example create a .env file based on .env.template and fill in blanks
