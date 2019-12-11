@@ -1,1 +1,1 @@
-to run example create a .env file based on .env.template and fill in blanks
+To run example create a .env file based on .env.template and fill in blanks. Then run docker-compose up
