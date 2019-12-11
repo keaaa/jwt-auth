@@ -11,4 +11,4 @@ curl localhost:8080 -i -H "Authorization: Bearer some-valid-jwt-token"
 returns HTTP STATUS NOCONTENT if valid
 ```
 
-Can be used together with nginx and `auth_request`. See [example](example/README.md) 
+Can be used together with nginx and `auth_request`. See [example](example/) 
